@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Tarifs - Coach Sportif Pro</title>
+    <meta name="description"
+        content="Découvrez mes offres de coaching : individuel, en ligne, programmes personnalisés. Tarifs transparents et adaptés à vos objectifs.">
+    <link rel="stylesheet" href="./index.css?v=3">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Coach Alex</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+
+
+                <li><a href="testimonials.html" class="nav-link">Témoignages</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Réserver</a></li>
+            </ul>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('./assets/images/services.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Mes <span class="text-gradient">Services</span>
+            </h1>
+            <p class="hero-subtitle">
+                Choisis la formule adaptée à tes objectifs
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary btn-lg hero-tab-btn" onclick="switchTab('coaching')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+                        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                        <path d="m9 14 2 2 4-4" />
+                    </svg>
+                    Coaching
+                </button>
+
+                <button class="btn btn-outline btn-lg hero-tab-btn" onclick="switchTab('programmes')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                    Programmes Spécialisés
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Navigation (Hidden, logic handled by Hero buttons) -->
+    <div style="display: none;">
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="coaching">Coaching</button>
+            <button class="tab-button" data-tab="programmes">Programmes</button>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedContent = document.querySelector(`.tab-content[data-content="${tabId}"]`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+
+                // Scroll to content
+                const headerOffset = 100;
+                const elementPosition = selectedContent.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+
+            // Update button styles (optional, to show active state if we keep outline/primary logic)
+            // For now, we keep them static as entry points.
+        }
+    </script>
+
+    <!-- Tab Content Container -->
+    <div class="container">
+        <!-- Coaching Tab Content -->
+        <div class="tab-content active" data-content="coaching">
+            <!-- Coaching Individuel Section -->
+            <section class="section" style="padding-top: var(--spacing-xl);">
+                <h2 class="text-center mb-5">Coaching</h2>
+                <div class="grid grid-2">
+                    <!-- Coaching Individuel -->
+                    <div class="card card-glass reveal">
+                        <div class="icon-container icon-container-orange">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b35"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <polyline points="16 11 18 13 22 9" />
+                            </svg>
+                        </div>
+                        <h2>Coaching Individuel</h2>
+                        <p class="text-muted mb-4">
+                            Séances personnalisées en face-à-face pour un accompagnement optimal et des résultats
+                            rapides.
+                        </p>
+
+                        <h4 style="color: var(--color-primary);">✓ Inclus :</h4>
+                        <ul style="list-style: none; margin-bottom: var(--spacing-lg);">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Bilan de départ complet
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Programme personnalisé
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Suivi de progression</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Conseils nutrition</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support WhatsApp 7j/7
+                            </li>
+                        </ul>
+
+
+
+                        <button id="show-pricing-btn" class="btn btn-primary" style="width: 100%;">Voir les
+                            tarifs</button>
+                    </div>
+
+                    <!-- Coaching en Ligne -->
+                    <div class="card card-glass reveal">
+                        <div class="icon-container icon-container-blue">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="14" x="2" y="3" rx="2" />
+                                <line x1="8" x2="16" y1="21" y2="21" />
+                                <line x1="12" x2="12" y1="17" y2="21" />
+                            </svg>
+                        </div>
+                        <h2>Coaching en Ligne</h2>
+                        <p class="text-muted mb-4">
+                            Entraîne-toi où tu veux, quand tu veux, avec un suivi professionnel à distance.
+                        </p>
+
+                        <h4 style="color: var(--color-primary);">✓ Inclus :</h4>
+                        <ul style="list-style: none; margin-bottom: var(--spacing-lg);">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Programme vidéo détaillé
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Appels vidéo
+                                hebdomadaires
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Analyse de tes vidéos
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Plan nutrition
+                                personnalisé
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Accès app de suivi</li>
+                        </ul>
+
+
+
+                        <button id="show-online-pricing-btn" class="btn btn-primary" style="width: 100%;">Voir les
+                            tarifs</button>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Online Pricing Section (Hidden by default) -->
+        <section class="section" id="online-pricing-section" style="display: none;">
+            <div class="container">
+                <h2 class="text-center mb-5">Formules Coaching en Ligne</h2>
+
+                <div class="grid grid-3">
+                    <div class="card card-glass reveal">
+                        <h3>Starter</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            80€
+                        </div>
+                        <p class="text-muted mb-4">Par mois</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Programme personnalisé
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Accès application</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Renouvellement mensuel
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support par mail</li>
+                        </ul>
+                        <a href="booking.html?service=online-starter" class="btn btn-outline"
+                            style="width: 100%;">Choisir</a>
+                    </div>
+
+                    <div class="card card-highlight reveal">
+                        <div
+                            style="position: absolute; top: -15px; right: 20px; background: var(--color-primary); padding: 5px 15px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700;">
+                            RECOMMANDÉ
+                        </div>
+                        <h3>Pro</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            120€
+                        </div>
+                        <p class="text-muted mb-4">Par mois</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Tout du pack Starter</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Plan nutritionnel</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Check-up hebdomadaire
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Ajustements illimités
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support WhatsApp 5j/7
+                            </li>
+                        </ul>
+                        <a href="booking.html?service=online-pro" class="btn btn-primary"
+                            style="width: 100%;">Choisir</a>
+                    </div>
+
+                    <div class="card card-glass reveal">
+                        <h3>Elite</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            160€
+                        </div>
+                        <p class="text-muted mb-4">Par mois</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Tout du pack Pro</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ 2 Visios / mois</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Analyse technique vidéo
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support prioritaire 7j/7
+                            </li>
+                        </ul>
+                        <a href="booking.html?service=online-elite" class="btn btn-outline"
+                            style="width: 100%;">Choisir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tarifs Section (inside Coaching tab) -->
+        <section class="section" id="pricing-section" style="display: none;">
+            <div class="container container-wide">
+                <h2 class="text-center mb-5">Formules & Tarifs</h2>
+
+                <div class="grid grid-4">
+                    <div class="card card-glass reveal">
+                        <h3>Découverte</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            40€
+                        </div>
+                        <p class="text-muted mb-4">Séance découverte</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ 1 séance d'essai</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Bilan personnalisé</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Conseils gratuits</li>
+                        </ul>
+                        <a href="booking.html?service=decouverte" class="btn btn-outline"
+                            style="width: 100%;">Réserver</a>
+                    </div>
+
+                    <div class="card card-glass reveal">
+                        <h3>Séance Unique</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            60€
+                        </div>
+                        <p class="text-muted mb-4">À la carte</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ 1h de coaching</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Sur mesure</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Sans engagement</li>
+                        </ul>
+                        <a href="booking.html?service=coaching-1" class="btn btn-outline"
+                            style="width: 100%;">Réserver</a>
+                    </div>
+
+                    <div class="card card-highlight reveal">
+                        <div
+                            style="position: absolute; top: -15px; right: 20px; background: var(--color-primary); padding: 5px 15px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700;">
+                            POPULAIRE
+                        </div>
+                        <h3>Performance</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            275€
+                        </div>
+                        <p class="text-muted mb-4">Pack 5 séances</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ 5 séances personnalisées
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Programme complet</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Plan nutrition basique
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support WhatsApp</li>
+                        </ul>
+                        <a href="booking.html?service=pack-performance" class="btn btn-primary"
+                            style="width: 100%;">Réserver</a>
+                    </div>
+
+                    <div class="card card-glass reveal">
+                        <h3>Transformation</h3>
+                        <div
+                            style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); margin: var(--spacing-md) 0;">
+                            500€
+                        </div>
+                        <p class="text-muted mb-4">Pack 10 séances</p>
+                        <ul style="list-style: none;">
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ 10 séances sur mesure
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Programme complet</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Nutrition personnalisée
+                            </li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Suivi avancé</li>
+                            <li class="text-muted" style="margin-bottom: var(--spacing-xs);">✓ Support prioritaire</li>
+                        </ul>
+                        <a href="booking.html?service=pack-transformation" class="btn btn-outline"
+                            style="width: 100%;">Réserver</a>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <p class="text-muted">
+                        💳 Paiement sécurisé par carte bancaire, PayPal ou virement<br>
+                        📅 Annulation gratuite jusqu'à 24h avant la séance
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- End Coaching Tab Content -->
+
+    <!-- Programmes Tab Content -->
+    <div class="tab-content" data-content="programmes">
+        <!-- Programmes Section -->
+        <section class="section" style="padding-top: var(--spacing-xl);">
+            <h2 class="text-center mb-5">Programmes Spécialisés</h2>
+
+            <div class="grid grid-2" style="max-width: 1100px; margin: 0 auto;">
+
+                <!-- Programme Perte de Poids -->
+                <div class="card card-glass reveal">
+
+                    <h2>Programme :<br>Perte de Poids</h2>
+                    <p class="text-muted mb-4">
+                        12 semaines intensives pour brûler les graisses et sculpter ton corps
+                    </p>
+
+                    <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Ce que tu obtiens :</h4>
+                    <ul style="list-style: none; margin-bottom: var(--spacing-lg);">
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ 36 séances d'entraînement
+                            progressives</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Plan nutrition complet avec
+                            recettes</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Vidéos explicatives de chaque
+                            exercice</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Suivi hebdomadaire
+                            personnalisé</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Accès groupe privé Facebook
+                        </li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Support illimité par WhatsApp
+                        </li>
+                    </ul>
+
+                    <div
+                        style="display: flex; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-lg);">
+                        <div>
+                            <div
+                                style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary);">
+                                297€</div>
+                            <div style="text-decoration: line-through; color: var(--color-text-muted);">397€</div>
+                        </div>
+                        <div
+                            style="background: var(--color-success); color: var(--color-bg); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-weight: 700; font-size: var(--font-size-sm);">
+                            -100€
+                        </div>
+                    </div>
+
+                    <a href="stripe-demo.html" class="btn btn-primary" style="width: 100%;">Commander maintenant</a>
+                </div>
+
+                <!-- Programme Prise de Masse -->
+                <div class="card card-glass reveal">
+
+                    <h2>Programme :<br>Prise de Masse</h2>
+                    <p class="text-muted mb-4">
+                        16 semaines pour développer du muscle sec et de la force
+                    </p>
+
+                    <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Ce que tu obtiens :</h4>
+                    <ul style="list-style: none; margin-bottom: var(--spacing-lg);">
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ 48 séances de musculation
+                            ciblées</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Plan nutrition complet avec
+                            recettes</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Vidéos explicatives de chaque
+                            exercice</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Suivi hebdomadaire
+                            personnalisé</li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Accès groupe privé Facebook
+                        </li>
+                        <li class="text-muted" style="margin-bottom: var(--spacing-sm);">✓ Support illimité par WhatsApp
+                        </li>
+                    </ul>
+
+                    <div
+                        style="display: flex; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-lg);">
+                        <div>
+                            <div
+                                style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary);">
+                                397€</div>
+                            <div style="text-decoration: line-through; color: var(--color-text-muted);">497€</div>
+                        </div>
+                        <div
+                            style="background: var(--color-success); color: var(--color-bg); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-weight: 700; font-size: var(--font-size-sm);">
+                            -100€
+                        </div>
+                    </div>
+
+                    <a href="stripe-demo.html" class="btn btn-primary" style="width: 100%;">Commander maintenant</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- End Programmes Tab Content -->
+    </div>
+    <!-- End Tab Content Container -->
+
+    <!-- CTA Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="card card-glass text-center reveal" style="padding: var(--spacing-3xl);">
+                <h2>Besoin d'une offre sur mesure ?</h2>
+                <p class="text-muted mb-5">
+                    Contacte-moi pour une offre personnalisée adaptée à tes objectifs spécifiques.
+                </p>
+                <div class="flex-center" style="flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-primary btn-lg">ME CONTACTER</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
