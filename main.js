@@ -211,10 +211,47 @@ forms.forEach(form => {
 });
 
 // ============================================
+// MOBILE NAVIGATION ACTIVE STATE
+// ============================================
+function updateBottomNavActiveState() {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const bottomNavLinks = document.querySelectorAll('.bottom-nav-link');
+
+    bottomNavLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// ============================================
+// SERVICE WORKER REGISTRATION (PWA)
+// ============================================
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker enregistré !', reg))
+                .catch(err => console.log('Erreur SW:', err));
+        });
+    }
+}
+
+// Initializations
+document.addEventListener('DOMContentLoaded', () => {
+    renderFooter();
+    updateBottomNavActiveState();
+    registerServiceWorker();
+});
+
+// ============================================
 // CONSOLE LOG
 // ============================================
-console.log('%c🏋️ Coach Pro Website ', 'background: linear-gradient(135deg, #ff6b35, #00d4ff); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold;');
-console.log('Développé avec passion 💪');
+console.log('%c🏋️ Coach Alex Premium ', 'background: linear-gradient(135deg, #ff6b35, #00d4ff); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold;');
+console.log('Mobile version optimized 💪');
 
 // ============================================
 // PRICING TOGGLE (Services page)
